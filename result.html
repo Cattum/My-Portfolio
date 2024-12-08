@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+    <title>Result</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="refrsh" content="3">
+    <link rel="stylesheet" href="css_file/style.css"> 
+</head>
+
+<body>
+    <header>
+        <span>Welcome to My Website</span>
+        <a href="Index.html" title="Home" class="href_header">Home</a>
+        <a href="Projects.html" title="Projects" class="href_header">Project</a>
+        <a href="Contact.html" title="Contact" class="href_header">Contact</a>
+        <a href="About.html" title="About" class="href_header">About</a>
+    </header>
+    <div id="results"></div>
+    <a href="Contact.html">Back to Contact</a>
+    <script>
+        const resultsList=document.getElementById('results')
+        new URLSearchParams(window.location.search).forEach((value,
+        name)=>{
+        resultsList.append(`${name}: ${value}`)
+        resultsList.append(document.createElement("br"))
+    })
+    </script>
+    <footer>
+        <p id="p1">Artist name: Qirui Zhao</p>
+        <p id="p1">&copy;2024 copyright reserved</p>
+        <a href="qz129@duke.edu">qz129@duke.edu </a>
+
+    </footer>
+    
+</body>
+</html>

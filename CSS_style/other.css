@@ -192,7 +192,8 @@ body, html {
     align-items: center;
     color: white;
     text-align: center;
-  }
+    background-image: url("img/3.jpg");
+    }
   
   .cover-video {
     position: absolute;

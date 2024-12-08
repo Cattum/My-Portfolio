@@ -291,7 +291,7 @@ html, body {
 
     #animate {
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        font-size: 0.5em; /* Adjust animation text size */
+        font-size: 0.3em; /* Adjust animation text size */
         top: 20%;
     }
 }
@@ -308,7 +308,7 @@ html, body {
 
     #animate {
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        font-size: 0.5em;
+        font-size: 0.3em;
         top: 15%;
     }
 }

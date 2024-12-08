@@ -1,0 +1,897 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(254, 254, 254);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(45, 43, 43, 0.315);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(255, 255, 255);
+    box-sizing: border-box;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    color: rgb(255, 255, 255);
+    position: relative;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .navbar nav {
+        gap: 15px; 
+    }
+
+    .navbar nav a {
+        font-size: 18px;
+        margin: 5px 0;
+    }
+}
+
+.navbar nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar nav a:hover {
+    font-size: 1.05em;
+}
+
+.navbar nav a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+    animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) scaleX(1) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) scaleX(1) translateY(-5px);
+    }
+}
+
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden;
+    background-image: url(../img/Art4.jpg);
+    margin: 0;
+    padding: 0;
+}
+
+.image {
+    background-image: url(../img/Art4.jpg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; 
+    background-size: cover; 
+    background-position: center; 
+    margin: 0;
+    background-color: rgb(24, 24, 24);
+}
+
+/* 按钮样式 */
+.prev-button, .next-button {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+    opacity: 0;
+    border-radius: 3em;
+}
+
+.prev-button {
+    left: 10px;
+}
+
+.next-button {
+    right: 10px;
+}
+
+.prev-button:active, .next-button:active {
+    background-color: beige;
+}
+
+.introduce{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    width: 100%;
+    height: 50vh; 
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.text-block {
+    background-image: url("../img/background.jpg");
+    background-color: rgba(22, 21, 19, 0.9);
+    background-blend-mode: darken; 
+    color: white;
+    width: 60%;
+    height: 100%;
+    margin: 0;
+}
+
+.side-image {
+    background-size: cover; 
+    float: right;
+    width: 40%;
+    height: auto;
+    overflow: hidden;
+}
+
+
+.side-image {
+    padding-top: 3%;
+    width: 100%; 
+    height: auto;
+}
+
+.text{
+    margin: 5vh;
+}
+
+.text h1{
+    font-family: fantasy;
+}
+
+.text p{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.introduce {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40vh;
+    box-sizing: border-box;
+    background-image: url("../img/background.jpg");
+    background-color: rgba(22, 21, 19, 0.9);
+    background-blend-mode: darken;
+}
+
+.text-block {
+    color: white;
+    width: 60%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.text-container {
+    width: 60%;
+    position: relative;
+    overflow: hidden;
+}
+
+.side-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+/* 屏幕响应式设计 */
+@media (max-width: 768px) {
+    .introduce {
+        flex-direction: column; /* 小屏幕时改为垂直布局 */
+        height: auto; /* 高度自动调整 */
+    }
+    .text-block, .text-container {
+        width: 100%; 
+    }
+}
+
+.art-container {
+    display: flex;
+    background-color: black;
+}
+
+.art-item {
+    position: relative;
+    width: 33.3333%;
+    height: 100vh; /* or any desired height */
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* 确保按钮在底部 */
+    align-items: center;
+}
+
+
+.art-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.group {
+    display: flex;
+    position: absolute;
+    gap: 0; /* 确保图片之间无空隙 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0s; /* 立即显示，去除动画 */
+}
+
+
+.group-image {
+    flex: 0 0 auto; 
+    width: 32%; 
+    height: 100%; 
+    object-fit: cover; /* 确保图片内容无拉伸变形 */
+    transform: translateX(-100%); /* 初始位置从左侧滑入 */
+    transition: transform 0.5s ease-in-out;
+    margin: 0; 
+    padding: 0; 
+    border: none; 
+}
+
+.art-item:hover .group {
+    opacity: 1; /* 鼠标悬停时显示图片组 */
+}
+
+.art-item:hover .group-image:nth-child(1) {
+    transform: translateX(0); /* 第一张图片完全显示 */
+    z-index: 3; 
+}
+
+.art-item:hover .group-image:nth-child(2) {
+    transform: translateX(-30%); /* 第二张图片部分叠加 */
+    z-index: 2; 
+}
+
+.art-item:hover .group-image:nth-child(3) {
+    transform: translateX(-60%); /* 第三张图片更多叠加 */
+    z-index: 1;
+}
+
+.art-button {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(223, 255, 251);
+    background-color: rgba(0, 0, 0, 0); /* 半透明背景 */
+    border: none;
+    border-radius: 5px;
+    border: 3px solid white;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 10; /* 确保按钮位于图片上方 */
+}
+
+
+
+/* 按钮文字样式 */
+.button-text {
+    position: relative;
+    z-index: 5; /* 确保文字在背景图片之上 */
+    font-size: 2em;
+    font-family:fantasy;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* 悬停效果 */
+.art-button:hover {
+    transform: translateX(-50%) scale(1.1); /* 放大效果 */
+    opacity: 1; /* 变为完全不透明 */
+    background-color: black;
+    
+    color: rgb(255, 255, 255);
+
+}
+
+
+/* 默认情况下，图片是正面朝上的 */
+.art-item {
+    transform: rotateY(0);
+    transition: transform 0.6s ease;
+}
+
+/* 当滚动到目标时，触发翻转 */
+.art-item.visible {
+    transform: rotateY(360deg);
+}
+
+.photo-item {
+    position: relative;
+    width: 30%;
+    height: 100vh;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.photo-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.cover-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+/* 田字布局容器 */
+.grid-group {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%; /* 两列 */
+    grid-template-rows: 50% 50%;   /* 两行 */
+    gap: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* 田字布局中的图片 */
+.grid-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* 初始不可见 */
+    position: absolute; /* 覆盖在封面上 */
+    transition: opacity 0.3s ease, transform 0.5s ease;
+    transform: scale(0.8); /* 初始缩小 */
+}
+
+/* 四个区域分别定位 */
+.grid-image.top-left {
+    grid-area: 1 / 1 / 2 / 2;
+    z-index: 1;
+}
+
+.grid-image.top-right {
+    grid-area: 1 / 2 / 2 / 3;
+    z-index: 2;
+}
+
+.grid-image.bottom-left {
+    grid-area: 2 / 1 / 3 / 2;
+    z-index: 3;
+}
+
+.grid-image.bottom-right {
+    grid-area: 2 / 2 / 3 / 3;
+    z-index: 4;
+}
+
+
+.art-item:hover .grid-group {
+    opacity: 1; 
+}
+
+.art-item:hover .grid-image.top-left {
+    opacity: 1;
+    transform: scale(1);
+    transition-delay: 0.1s; /* 延迟出现 */
+}
+
+.art-item:hover .grid-image.top-right {
+    opacity: 1;
+    transform: scale(1);
+    transition-delay: 0.2s;
+}
+
+.art-item:hover .grid-image.bottom-left {
+    opacity: 1;
+    transform: scale(1);
+    transition-delay: 0.3s;
+}
+
+.art-item:hover .grid-image.bottom-right {
+    opacity: 1;
+    transform: scale(1);
+    transition-delay: 0.4s;
+}
+
+.center-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0); 
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 10; 
+}
+
+/* 悬停按钮效果 */
+.center-button:hover {
+    background-color: rgba(255, 255, 255, 0.9); 
+    color: black;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* 动态 GIF */
+.gif-image {
+    margin-bottom: 20%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2; /* GIF 在静态封面之上 */
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+/* 鼠标悬停时 */
+.art-item:hover .gif-image {
+    opacity: 1; /* 显示 GIF */
+}
+
+.art-item:hover .cover {
+    opacity: 0.5; /* 让封面略微变透明 */
+}
+
+#animate{
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    padding: 5px 15px;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: fantasy;
+    color: rgb(95, 52, 18);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 10; 
+}
+
+#animate:hover{
+    transform: translateX(-50%) scale(1.1);
+    color: rgb(255, 255, 255);
+}
+
+
+
+/* 基本样式 */
+.projects-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    position: relative;
+    overflow: hidden; /* 防止滚动条出现 */
+}
+
+
+
+/* 每个项目 */
+.project {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+}
+
+.project-background {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#project1 {
+    background-image: url(../img/planet.png);
+}
+
+#project2 {
+    background-image: url(../img/7.jpg);
+}
+
+/* 按钮样式 */
+.nav-button {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 10%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    margin: 0;
+    opacity: 0;
+}
+
+.nav-button:hover{
+    opacity: 1;
+}
+
+/* 左侧按钮 */
+.prev {
+    left: 0;
+}
+
+/* 右侧按钮 */
+.next {
+    right: 0;
+}
+
+
+/* 项目链接按钮 */
+.project-link {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    color: white;
+    background: linear-gradient(135deg, rgb(36, 38, 47), #212729); /* 渐变背景色 */
+    padding: 18px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* 强化阴影 */
+    transition: all 0.3s ease-out;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-size: 200% 200%; /* 渐变动画效果 */
+}
+
+/* 鼠标悬停时的按钮样式 */
+.project-link:hover {
+    background: linear-gradient(135deg, rgb(184, 240, 222), #7c8fc5); /* 悬停时渐变颜色改变 */
+    transform: translateX(-50%) scale(1.1); /* 鼠标悬停时放大 */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); /* 强化阴影 */
+    color: white;
+    background-size: 300% 300%; /* 放大渐变效果 */
+    animation: gradientShift 1.5s ease infinite; /* 渐变色动画 */
+}
+
+/* 按钮获得焦点时的样式 */
+.project-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.7); /
+}
+
+/* 按钮点击时的视觉反馈 */
+.project-link:active {
+    transform: translateX(-50%) scale(0.98); 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); 
+    background: linear-gradient(135deg, #8e44ad, #f06);
+}
+
+/* 渐变动画 */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .project-link {
+        font-size: 1.2em;
+    }
+}
+
+
+/* 标题样式 */
+.project h1 {
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    z-index: 1;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.project h1:hover {
+    transform: translateX(-50%) scale(1.1);
+    color: #7bdcef;
+}
+
+.project p {
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    z-index: 1;
+    letter-spacing: 5px;
+    background-color: rgba(0, 0, 0, 0.315);
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.typing-effect span {
+    opacity: 0;
+    display: inline-block;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.typing-effect.show-text {
+    opacity: 1;
+}
+
+.typing-effect.show-text span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 浮现效果 */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project p::selection {
+    background-color: #7bdcef; 
+    color: black; 
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .project-description h2 {
+        font-size: 1.5em;
+    }
+
+    .project-description p {
+        font-size: 1em;
+    }
+
+    .nav-button {
+        font-size: 1.5em;
+        width: 10%;
+    }
+
+    .project-link {
+        font-size: 1.2em;
+        padding: 10px 20px;
+    }
+
+    .project h1 {
+        font-size: 2.5em;
+    }
+
+    .project p {
+        font-size: 0.8em;
+    }
+
+    .project-content {
+        width: 90%; 
+        height: 90%;
+    }
+
+    .project-background {
+        background-position: top center; /* 在小屏幕上调整背景图片位置 */
+    }
+}
+
+@media (max-width: 480px) {
+    .project h1 {
+        font-size: 1.8em;
+    }
+
+    .project p {
+        font-size: 0.9em;
+    }
+
+    .nav-button {
+        font-size: 1.2em;
+        width: 15%;
+    }
+
+    .project-link {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+}
+
+.footer {
+    background-image: url("../img/1.jpg");
+    background-color: rgba(22, 21, 19, 0.9);
+    background-blend-mode: darken; 
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-text {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.footer-socials {
+    margin: 10px 0;
+}
+
+.social-icon {
+    color: white;
+    font-size: 2em;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .footer {
+        padding: 30px 10px;
+    }
+
+    .footer-text {
+        font-size: 1em;
+    }
+
+    .footer-socials {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+
+.footer-right a {
+    color: white;
+    font-size: 1.2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.footer-right a:hover {
+    font-size: 1.3em;
+    color: #3498db; 
+}

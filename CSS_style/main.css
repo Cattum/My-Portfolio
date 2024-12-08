@@ -417,7 +417,7 @@ html, body {
     position: relative;
     z-index: 5; /* 确保文字在背景图片之上 */
     font-size: 2em;
-    font-family:fantasy;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
